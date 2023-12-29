@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import DashboardPage from './components/DashboardPage';
+import PricingPage from './components/PricingPage';
+import Header from './components/Header';
+import MyGraphs from './components/MyGraphs';
+import { Signin } from './pages/signin';
+import { Signup } from './pages/signup';
+import GraphDetailsPage from './pages/GraphDetailsPage';
+
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <Header/>
+    <div style={{ marginTop: '150px' }}>
+    <Routes>
+        <Route path="/" element={<DashboardPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/graph" element={<MyGraphs />} />
+        <Route path='/sign-in' element={<Signin/>}/>
+        <Route path='/sign-up' element={<Signup/>}/>
+        <Route path='/graphd' element={<GraphDetailsPage/>}/>
+      </Routes>
     </div>
+      
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
+
+
